@@ -12,12 +12,14 @@
         }
 
         :root {
-            --primary-color: #0175C2;
-            --accent-color: #13B9FF;
-            --dark-bg: #1a1a1a;
+            --primary-color: #1a1a2e;
+            --accent-color: #0f4c75;
+            --secondary-color: #3282b8;
+            --light-accent: #bbe1fa;
             --text-light: #ffffff;
-            --text-dark: #333333;
-            --gray-light: #f5f5f5;
+            --text-dark: #2c3e50;
+            --gray-light: #f8f9fa;
+            --gray-medium: #e9ecef;
         }
 
         body {
@@ -50,8 +52,9 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 700;
             color: var(--primary-color);
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -75,7 +78,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -83,16 +86,17 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,32L48,37.3C96,43,192,53,288,90.7C384,128,480,192,576,192C672,192,768,128,864,106.7C960,85,1056,107,1152,128C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
-            bottom: -50%;
-            animation: wave 20s linear infinite;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
         }
 
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
@@ -120,19 +124,21 @@
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             background: var(--text-light);
             color: var(--primary-color);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 5px;
+            font-weight: 600;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease 0.4s both;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: var(--light-accent);
         }
 
         /* Services Section */
@@ -172,8 +178,8 @@
         .service-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            border-radius: 15px;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -204,8 +210,8 @@
         .feature-icon {
             width: 40px;
             height: 40px;
-            background: var(--accent-color);
-            border-radius: 50%;
+            background: var(--secondary-color);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,9 +222,136 @@
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
-            background: var(--dark-bg);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: var(--text-light);
             text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .contact > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact .section-title {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact > p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(26, 26, 46, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--light-accent);
+            box-shadow: 0 0 0 3px rgba(187, 225, 250, 0.3);
+        }
+
+        .submit-button {
+            padding: 1.2rem 3rem;
+            background: var(--text-light);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            background: var(--light-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Section Responsive */
+        @media (max-width: 768px) {
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .contact .section-title {
+                font-size: 2rem;
+            }
+
+            .contact > p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-form {
+                max-width: 100%;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 1rem;
+            }
+
+            .submit-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
         }
 
         /* About Us Section */
@@ -237,36 +370,60 @@
         }
 
         .founder-card {
-            background: var(--gray-light);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid var(--gray-medium);
         }
 
         .founder-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
         }
 
-        .founder-card h3 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+        .founder-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .founder-card h4 {
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            background: var(--gray-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
             color: var(--accent-color);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-weight: normal;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .founder-info h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .founder-info h4 {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .founder-card h5 {
-            color: var(--text-dark);
+            color: var(--primary-color);
             margin-bottom: 1rem;
             margin-top: 1.5rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         .competencies ul, .achievements ul {
@@ -285,7 +442,7 @@
             content: "▸";
             position: absolute;
             left: 0;
-            color: var(--accent-color);
+            color: var(--secondary-color);
             font-weight: bold;
         }
 
@@ -306,20 +463,22 @@
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            padding: 2.5rem;
-            border-radius: 15px;
-            color: var(--text-light);
+            background: var(--gray-light);
+            padding: 3rem;
+            border-radius: 10px;
+            border: 2px solid var(--light-accent);
         }
 
         .partnership-value h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
         .partnership-value p {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: var(--text-dark);
         }
 
         /* Contact Section */
@@ -347,10 +506,16 @@
             text-align: left;
         }
 
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--light-accent);
+        }
+
         .form-group input,
         .form-group textarea {
             padding: 1rem;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.1);
             color: var(--text-light);
@@ -359,29 +524,32 @@
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             background: rgba(255, 255, 255, 0.15);
+            border-color: var(--light-accent);
         }
 
         .submit-button {
-            padding: 1rem 2rem;
-            background: var(--accent-color);
-            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            background: var(--light-accent);
+            color: var(--primary-color);
             border: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 5px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .submit-button:hover {
-            background: var(--primary-color);
+            background: var(--text-light);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -490,8 +658,13 @@
         <h2 class="section-title">Meet Your Consultants</h2>
         <div class="about-container">
             <div class="founder-card">
-                <h3>Noah Spahn</h3>
-                <h4>Technical Lead & Full-Stack Engineer</h4>
+                <div class="founder-profile">
+                    <div class="profile-image">NS</div>
+                    <div class="founder-info">
+                        <h3>Noah Spahn</h3>
+                        <h4>Technical Lead & Full-Stack Engineer</h4>
+                    </div>
+                </div>
                 <div class="competencies">
                     <h5>Core Competencies</h5>
                     <ul>
@@ -512,16 +685,22 @@
                 <div class="achievements">
                     <h5>Notable Achievements</h5>
                     <ul>
-                        <li><strong>Cedarware Corp:</strong> Architected BLE-integrated dental and medical devices with full-stack cross-platform apps</li>
-                        <li><strong>NASA SpaceApps Finalist:</strong> Built VR app with NASA data</li>
-                        <li><strong>Serra Project:</strong> AI-powered assistive vision system & online platform</li>
+                        <li><strong>Medical Device Launch:</strong> Led multi-phase development of commercial medical device from prototype to market launch, meeting ISO 13485 regulatory requirements on schedule and within budget</li>
+                        <li><strong>90% On-Time Delivery:</strong> Supervised cross-disciplinary teams across dozen+ device and platform launches, achieving over 90% on-time, on-budget delivery through strategic product iteration</li>
+                        <li><strong>Cost Optimization:</strong> Conducted comprehensive system redesigns across medical and IoT device portfolio, reducing project costs through streamlined architecture while improving performance</li>
+                        <li><strong>Long-term Product Strategy:</strong> Developed maintenance and enhancement strategies for medical devices in regulated environments, balancing performance, risk mitigation, and user safety across residential and clinical settings</li>
                     </ul>
                 </div>
             </div>
 
             <div class="founder-card">
-                <h3>David Kerr</h3>
-                <h4>Strategy & Innovation Lead</h4>
+                <div class="founder-profile">
+                    <div class="profile-image">DK</div>
+                    <div class="founder-info">
+                        <h3>David Kerr</h3>
+                        <h4>Strategy & Innovation Lead</h4>
+                    </div>
+                </div>
                 <div class="competencies">
                     <h5>Core Competencies</h5>
                     <ul>
