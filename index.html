@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreScale - MVP Development for Startups</title>
+    <title>Nexus Point Incorporated - Strategic Consulting & Technical Development</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,10 @@
             --text-dark: #2c3e50;
             --gray-light: #f8f9fa;
             --gray-medium: #e9ecef;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --danger-color: #dc3545;
         }
 
         body {
@@ -58,11 +62,6 @@
             font-weight: 700;
             color: var(--primary-color);
             letter-spacing: -0.5px;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
         }
 
         .nav-links {
@@ -196,176 +195,166 @@
             font-size: 1.5rem;
         }
 
-        /* Why Choose Us */
-        .why-us {
+        /* Pricing Section */
+        .pricing {
             padding: 5rem 2rem;
             background: var(--text-light);
         }
 
-        .features-list {
-            max-width: 800px;
+        .pricing-grid {
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .feature-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary-color);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            flex-shrink: 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-            color: var(--text-light);
-            text-align: center;
+        .pricing-card {
+            background: var(--text-light);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             position: relative;
+            border: 2px solid transparent;
         }
 
-        .contact::before {
-            content: '';
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: "Most Popular";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .contact > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact .section-title {
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary-color);
             color: var(--text-light);
-            font-size: 2.5rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tier-audience {
+            color: var(--secondary-color);
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
-        .contact > p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.95;
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: grid;
-            gap: 0.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .price-details {
+            color: var(--text-dark);
             font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        .form-group input,
-        .form-group textarea {
-            padding: 1.2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.95);
+        .deliverables {
+            margin-top: 2rem;
+        }
+
+        .deliverables h4 {
             color: var(--primary-color);
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(26, 26, 46, 0.5);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 1);
-            border-color: var(--light-accent);
-            box-shadow: 0 0 0 3px rgba(187, 225, 250, 0.3);
-        }
-
-        .submit-button {
-            padding: 1.2rem 3rem;
-            background: var(--text-light);
-            color: var(--primary-color);
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
+            margin-bottom: 1rem;
             font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        }
+
+        .deliverables ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .deliverables li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .deliverables li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .diagnostic-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .diagnostic-card .tier-name,
+        .diagnostic-card .price {
+            color: var(--text-light);
+        }
+
+        .diagnostic-card .tier-audience {
+            color: var(--light-accent);
+        }
+
+        .retainer-info {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            padding: 2rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .retainer-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .discount-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
-        .submit-button:hover {
-            background: var(--light-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Contact Section Responsive */
-        @media (max-width: 768px) {
-            .contact {
-                padding: 3rem 1rem;
-            }
-
-            .contact .section-title {
-                font-size: 2rem;
-            }
-
-            .contact > p {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .contact-form {
-                max-width: 100%;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 1rem;
-            }
-
-            .submit-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
+        .discount-badge {
+            background: var(--success-color);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         /* About Us Section */
         .about-us {
             padding: 5rem 2rem;
-            background: var(--text-light);
+            background: var(--gray-light);
         }
 
         .about-container {
@@ -471,7 +460,7 @@
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
-            background: var(--gray-light);
+            background: var(--text-light);
             padding: 3rem;
             border-radius: 10px;
             border: 2px solid var(--light-accent);
@@ -489,15 +478,143 @@
             color: var(--text-dark);
         }
 
+        /* Why Choose Us Section */
+        .why-us {
+            padding: 5rem 2rem;
+            background: var(--text-light);
+        }
+
+        .features-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
-            background: var(--dark-bg);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: var(--text-light);
             text-align: center;
+            position: relative;
         }
 
-        /* Contact Section - Removed duplicate */
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .contact > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact .section-title {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact > p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(26, 26, 46, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--light-accent);
+            box-shadow: 0 0 0 3px rgba(187, 225, 250, 0.3);
+        }
+
+        .submit-button {
+            padding: 1.2rem 3rem;
+            background: var(--text-light);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            background: var(--light-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
         /* Footer */
         footer {
@@ -529,12 +646,21 @@
                 font-size: 2.5rem;
             }
             
-            .services-grid {
+            .services-grid, .pricing-grid {
                 grid-template-columns: 1fr;
             }
             
             .about-container {
                 grid-template-columns: 1fr;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+
+            .discount-badges {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -544,12 +670,12 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="corescale-logo.png" alt="CoreScale Logo">
-                <span>CoreScale</span>
+                <span>Nexus Point Incorporated</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -560,52 +686,224 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Launch Your MVP in 8 Weeks</h1>
-            <p>Expert Flutter development specialized in helping startups validate ideas and build scalable MVPs</p>
-            <a href="#contact" class="cta-button">Start Your MVP</a>
+            <h1>Strategic Innovation & Technical Excellence</h1>
+            <p>From startup MVPs to enterprise transformation - we accelerate your vision with proven expertise in technology, strategy, and organizational change</p>
+            <a href="#contact" class="cta-button">Start Your Journey</a>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title">Our Core Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>MVP Development</h3>
-                <p>Rapid development of minimum viable products to validate your startup idea in just 8 weeks.</p>
+                <div class="service-icon">🚀</div>
+                <h3>Startup Launch & Accelerate</h3>
+                <p>Rapid MVP development, essential CI/CD pipelines, agile coaching, and market entry strategy for seed to Series A startups.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>Product Strategy</h3>
-                <p>Market validation and feature prioritization to ensure your MVP tests the right hypothesis.</p>
+                <div class="service-icon">📈</div>
+                <h3>Growth Catalyst</h3>
+                <p>Full-stack development, comprehensive DevOps, IoT integration, and regulatory compliance for high-growth companies.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">⚡</div>
-                <h3>Performance Optimization</h3>
-                <p>Ensure your Flutter app runs smoothly and efficiently, providing the best possible user experience.</p>
+                <div class="service-icon">🏢</div>
+                <h3>Enterprise Innovation</h3>
+                <p>Strategic transformation consulting, government contracting compliance, advanced cloud architecture, and executive strategy.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Technical Consultation</h3>
-                <p>Expert advice on architecture, best practices, and technology choices to set your startup up for success.</p>
+                <div class="service-icon">🔄</div>
+                <h3>Behavioral Change & Innovation</h3>
+                <p>Cultural transformation, relationship restoration, innovation center creation, and leadership alignment using proven methodologies.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Executive Leadership Coaching</h3>
+                <p>Individual and group coaching, leadership development roadmaps, decision-making frameworks, and strategic resilience training.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">📊</div>
-                <h3>Analytics & Growth</h3>
-                <p>Built-in analytics and growth metrics from day one to measure MVP success and iterate quickly.</p>
+                <h3>Strategic Marketing & Brand Positioning</h3>
+                <p>Brand identity audits, messaging frameworks, competitor research, and go-to-market strategy planning.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🚀</div>
-                <h3>Launch Strategy</h3>
-                <p>Go-to-market planning and execution to ensure your MVP reaches the right users for validation.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Investment Packages</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card diagnostic-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🔍 Nexus Diagnostic™</h3>
+                    <p class="tier-audience">Risk-Free Discovery</p>
+                    <div class="price">$3,500</div>
+                    <p class="price-details">One-time flat rate • 2-week engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Deliverables:</h4>
+                    <ul>
+                        <li>Discovery Workshop (2-3 hrs with stakeholders)</li>
+                        <li>Current State Audit (architecture, processes, product fit)</li>
+                        <li>Opportunity Mapping: 3-5 actionable quick wins + 1 strategic lever</li>
+                        <li>High-Level Execution Roadmap (3-6 month projection)</li>
+                        <li>Leadership Readout + Recommendation Brief</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🟢 Startup Launch & Accelerate™</h3>
+                    <p class="tier-audience">Seed to Series A Startups</p>
+                    <div class="price">$150<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">30-50 hrs/month typical engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Deliverables:</h4>
+                    <ul>
+                        <li>Rapid MVP Development (Web/App/IoT)</li>
+                        <li>Essential CI/CD pipeline (GitHub Actions, AWS/Azure)</li>
+                        <li>Agile Coaching & Roadmap Creation</li>
+                        <li>Initial Market Entry Strategy Consultation</li>
+                        <li>Embedded Systems Prototyping (PoC)</li>
+                        <li>Bi-weekly strategy calls & progress reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🔵 Growth Catalyst™</h3>
+                    <p class="tier-audience">SMEs & High-Growth Companies</p>
+                    <div class="price">$225<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">60-100 hrs/month typical engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Everything in Startup package, plus:</h4>
+                    <ul>
+                        <li>Full-stack Application Development (Enterprise-grade)</li>
+                        <li>Comprehensive DevOps & Automated Testing</li>
+                        <li>Firmware & Hardware Integration (medical, consumer IoT)</li>
+                        <li>Advanced IoT & Data Visualization Dashboards</li>
+                        <li>ISO 13485 & Regulatory Compliance Consulting</li>
+                        <li>Dedicated Weekly Strategy & Execution Check-ins</li>
+                        <li>Project Management Support (Jira, Trello, Asana)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🟣 Enterprise Innovation & GovCon™</h3>
+                    <p class="tier-audience">Enterprise & Government Contractors</p>
+                    <div class="price">$295<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">120+ hrs/month typical engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Everything in Growth package, plus:</h4>
+                    <ul>
+                        <li>Strategic Innovation & Organizational Transformation</li>
+                        <li>Government Contracting Documentation & Compliance</li>
+                        <li>Advanced IoT, Cloud & Data Architecture</li>
+                        <li>High-security, compliant DevSecOps solutions</li>
+                        <li>24/7 Priority Support & Custom SLA Availability</li>
+                        <li>Executive-level Monthly Strategy Sessions & Reports</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🚀 Behavioral Change & Innovation™</h3>
+                    <p class="tier-audience">Cultural Transformation</p>
+                    <div class="price">$275<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">50-120 hrs/month (project-dependent)</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Deliverables:</h4>
+                    <ul>
+                        <li>Behavioral & Cultural Diagnostics</li>
+                        <li>Change Management Roadmap (McKinsey Framework)</li>
+                        <li>Relationship Restoration Programs</li>
+                        <li>Innovation Center Creation</li>
+                        <li>Leadership & Stakeholder Alignment</li>
+                        <li>Continuous Feedback Loops</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🟡 Executive Leadership Coaching</h3>
+                    <p class="tier-audience">Founders & Senior Teams</p>
+                    <div class="price">$275<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">20-60 hrs/month typical engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Deliverables:</h4>
+                    <ul>
+                        <li>Individual & Group Executive Coaching</li>
+                        <li>Custom Leadership Development Roadmaps</li>
+                        <li>Decision-Making Frameworks & Strategic Resilience</li>
+                        <li>Shadowing, Feedback Loops, and Strength-Based Growth</li>
+                        <li>Stakeholder Alignment & Influence Strategies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🔴 Strategic Marketing & Brand Positioning</h3>
+                    <p class="tier-audience">Brand & Market Strategy</p>
+                    <div class="price">$225<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">40-100 hrs/month typical engagement</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Deliverables:</h4>
+                    <ul>
+                        <li>Brand Identity Deep Dive & Positioning Audit</li>
+                        <li>Messaging Frameworks & Value Proposition Design</li>
+                        <li>Competitor & Market Research</li>
+                        <li>Go-to-Market Strategy Planning</li>
+                        <li>Visual & Narrative Alignment with Innovation Goals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="tier-name">🟠 Custom Consulting & Strategic Retainers</h3>
+                    <p class="tier-audience">Tailored Solutions</p>
+                    <div class="price">$175-$325<span style="font-size: 1rem;">/hr</span></div>
+                    <p class="price-details">Based on complexity, risk, and strategic value</p>
+                </div>
+                <div class="deliverables">
+                    <h4>Retainer Benefits:</h4>
+                    <ul>
+                        <li>6-12 month engagements: Minimum 40 hrs/month</li>
+                        <li>Value-based pricing structure</li>
+                        <li>Quarterly Strategic Reviews (12-month commitments)</li>
+                        <li>Priority access to our team</li>
+                        <li>Customized delivery approach</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="retainer-info">
+            <h3>Retainer Commitment Discounts</h3>
+            <p>Lock in preferred rates and ensure priority access to our expertise with commitment-based pricing.</p>
+            <div class="discount-badges">
+                <div class="discount-badge">6-Month Commitment: 10% Discount</div>
+                <div class="discount-badge">12-Month Commitment: 15% Discount + Quarterly Reviews</div>
             </div>
         </div>
     </section>
 
     <!-- About Us Section -->
     <section class="about-us" id="about">
-        <h2 class="section-title">Meet Your Consultants</h2>
+        <h2 class="section-title">Meet Your Strategic Partners</h2>
         <div class="about-container">
             <div class="founder-card">
                 <div class="founder-profile">
@@ -681,40 +979,47 @@
         </div>
         <div class="partnership-value">
             <h3>The Power of Our Partnership</h3>
-            <p>Together, Noah and David bring a unique combination of deep technical expertise and strategic business acumen. While Noah ensures your MVP is built with cutting-edge technology and engineering excellence, David ensures it validates the right hypothesis and aligns with lean startup principles. This dual approach means your startup gets both world-class technical execution and strategic validation for rapid market entry.</p>
+            <p>Together, Noah and David bring a unique combination of deep technical expertise and strategic business acumen. While Noah ensures your solutions are built with cutting-edge technology and engineering excellence, David ensures they align with proven business frameworks and organizational psychology. This dual approach means your organization gets both world-class technical execution and strategic validation for sustainable growth and innovation.</p>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
     <section class="why-us" id="why-us">
-        <h2 class="section-title">Why Startups Choose CoreScale</h2>
+        <h2 class="section-title">Why Organizations Choose Nexus Point</h2>
         <div class="features-list">
             <div class="feature-item">
                 <div class="feature-icon">✓</div>
                 <div>
-                    <h3>MVP-Focused Expertise</h3>
-                    <p>We specialize in rapid MVP development, helping startups validate ideas quickly and efficiently with an 8-week delivery timeline.</p>
+                    <h3>Proven Track Record</h3>
+                    <p>From startup MVPs to enterprise transformation, we've delivered results across industries with measurable outcomes and client success stories.</p>
                 </div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">✓</div>
                 <div>
-                    <h3>Lean Development Process</h3>
-                    <p>Using lean startup principles, we build only what's needed to test your hypothesis and get real user feedback fast.</p>
+                    <h3>Integrated Approach</h3>
+                    <p>We combine technical excellence with strategic thinking, ensuring your solutions are not just well-built, but strategically aligned for maximum impact.</p>
                 </div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">✓</div>
                 <div>
-                    <h3>Cross-Platform Excellence</h3>
-                    <p>One codebase for iOS, Android, and web - maximizing your reach while minimizing development time and costs.</p>
+                    <h3>Regulatory Expertise</h3>
+                    <p>Deep experience with ISO 13485, ITAR/FAR compliance, and government contracting requirements ensures your projects meet the highest standards.</p>
                 </div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">✓</div>
                 <div>
-                    <h3>Validation-First Approach</h3>
-                    <p>We don't just build apps - we help you validate your business model and find product-market fit through strategic MVP development.</p>
+                    <h3>Rapid Execution</h3>
+                    <p>Our lean methodologies and agile approach enable faster time-to-market while maintaining quality and reducing risk through proven frameworks.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Scalable Solutions</h3>
+                    <p>Whether you need a quick diagnostic or a long-term transformation partner, our flexible engagement models scale to meet your specific needs and budget.</p>
                 </div>
             </div>
         </div>
@@ -722,8 +1027,8 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="section-title">Ready to Launch Your MVP?</h2>
-        <p>Let's validate your startup idea and build a market-ready product in 8 weeks</p>
+        <h2 class="section-title">Ready to Accelerate Your Vision?</h2>
+        <p>Let's discuss how Nexus Point can help you achieve your strategic objectives and technical goals</p>
         <form class="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -731,19 +1036,37 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="john@startup.com">
+                <input type="email" id="email" name="email" required placeholder="john@company.com">
             </div>
             <div class="form-group">
-                <label for="message">Tell us about your project</label>
-                <textarea id="message" name="message" rows="5" required placeholder="I have an idea for..."></textarea>
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your Company Name">
             </div>
-            <button type="submit" class="submit-button">Send Message</button>
+            <div class="form-group">
+                <label for="service">Service Interest</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service...</option>
+                    <option value="diagnostic">🔍 Nexus Diagnostic™ - Discovery ($3,500)</option>
+                    <option value="startup">🟢 Startup Launch & Accelerate™ ($150/hr)</option>
+                    <option value="growth">🔵 Growth Catalyst™ ($225/hr)</option>
+                    <option value="enterprise">🟣 Enterprise Innovation & GovCon™ ($295/hr)</option>
+                    <option value="behavioral">🚀 Behavioral Change & Innovation™ ($275/hr)</option>
+                    <option value="leadership">🟡 Executive Leadership Coaching ($275/hr)</option>
+                    <option value="marketing">🔴 Strategic Marketing & Brand Positioning ($225/hr)</option>
+                    <option value="custom">🟠 Custom Consulting & Strategic Retainers</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Tell us about your project or challenge</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Describe your objectives, timeline, and how we can help you succeed..."></textarea>
+            </div>
+            <button type="submit" class="submit-button">Start the Conversation</button>
         </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 CoreScale. All rights reserved. | Building MVPs that scale</p>
+        <p>&copy; 2024 Nexus Point Incorporated. All rights reserved. | Strategic Innovation & Technical Excellence</p>
     </footer>
 
     <script>
@@ -770,8 +1093,11 @@
         // Form submission
         function handleSubmit(event) {
             event.preventDefault();
-            // In a real implementation, you would send this data to a server
-            alert('Thank you for your message! We\'ll get back to you within 24 hours to discuss your MVP.');
+            const formData = new FormData(event.target);
+            const service = formData.get('service');
+            const serviceName = event.target.service.options[event.target.service.selectedIndex].text;
+            
+            alert(`Thank you for your interest in ${serviceName}! We'll get back to you within 24 hours to discuss your project and next steps.`);
             event.target.reset();
         }
 
@@ -789,8 +1115,8 @@
             });
         }, observerOptions);
 
-        // Observe all service cards and feature items
-        document.querySelectorAll('.service-card, .feature-item').forEach(el => {
+        // Observe all service cards, pricing cards, and feature items
+        document.querySelectorAll('.service-card, .pricing-card, .feature-item').forEach(el => {
             observer.observe(el);
         });
     </script>
