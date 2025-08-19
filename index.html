@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Point Incorporated - Strategic Consulting & Technical Development</title>
+    <title>Nexus Corp - Strategic Consulting & Technical Development</title>
     <style>
         * {
             margin: 0;
@@ -62,6 +62,11 @@
             font-weight: 700;
             color: var(--primary-color);
             letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -270,17 +275,17 @@
         }
 
         .price-details {
-            color: var(--text-dark);
+            color: var(--text-light);
             font-size: 0.9rem;
             opacity: 0.8;
         }
 
         .deliverables {
+            color: var(--text-light);
             margin-top: 2rem;
         }
 
         .deliverables h4 {
-            color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
@@ -399,6 +404,13 @@
             color: var(--accent-color);
             font-weight: bold;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .founder-info h3 {
@@ -670,7 +682,8 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span>Nexus Point Incorporated</span>
+                <img src="assets/images/icon_large.png" alt="Nexus Corp Logo">
+                <span>Nexus Corp</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -752,153 +765,8 @@
                 </div>
             </div>
 
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🟢 Startup Launch & Accelerate™</h3>
-                    <p class="tier-audience">Seed to Series A Startups</p>
-                    <div class="price">$150<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">30-50 hrs/month typical engagement</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Deliverables:</h4>
-                    <ul>
-                        <li>Rapid MVP Development (Web/App/IoT)</li>
-                        <li>Essential CI/CD pipeline (GitHub Actions, AWS/Azure)</li>
-                        <li>Agile Coaching & Roadmap Creation</li>
-                        <li>Initial Market Entry Strategy Consultation</li>
-                        <li>Embedded Systems Prototyping (PoC)</li>
-                        <li>Bi-weekly strategy calls & progress reporting</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card popular">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🔵 Growth Catalyst™</h3>
-                    <p class="tier-audience">SMEs & High-Growth Companies</p>
-                    <div class="price">$225<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">60-100 hrs/month typical engagement</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Everything in Startup package, plus:</h4>
-                    <ul>
-                        <li>Full-stack Application Development (Enterprise-grade)</li>
-                        <li>Comprehensive DevOps & Automated Testing</li>
-                        <li>Firmware & Hardware Integration (medical, consumer IoT)</li>
-                        <li>Advanced IoT & Data Visualization Dashboards</li>
-                        <li>ISO 13485 & Regulatory Compliance Consulting</li>
-                        <li>Dedicated Weekly Strategy & Execution Check-ins</li>
-                        <li>Project Management Support (Jira, Trello, Asana)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🟣 Enterprise Innovation & GovCon™</h3>
-                    <p class="tier-audience">Enterprise & Government Contractors</p>
-                    <div class="price">$295<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">120+ hrs/month typical engagement</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Everything in Growth package, plus:</h4>
-                    <ul>
-                        <li>Strategic Innovation & Organizational Transformation</li>
-                        <li>Government Contracting Documentation & Compliance</li>
-                        <li>Advanced IoT, Cloud & Data Architecture</li>
-                        <li>High-security, compliant DevSecOps solutions</li>
-                        <li>24/7 Priority Support & Custom SLA Availability</li>
-                        <li>Executive-level Monthly Strategy Sessions & Reports</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🚀 Behavioral Change & Innovation™</h3>
-                    <p class="tier-audience">Cultural Transformation</p>
-                    <div class="price">$275<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">50-120 hrs/month (project-dependent)</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Deliverables:</h4>
-                    <ul>
-                        <li>Behavioral & Cultural Diagnostics</li>
-                        <li>Change Management Roadmap (McKinsey Framework)</li>
-                        <li>Relationship Restoration Programs</li>
-                        <li>Innovation Center Creation</li>
-                        <li>Leadership & Stakeholder Alignment</li>
-                        <li>Continuous Feedback Loops</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🟡 Executive Leadership Coaching</h3>
-                    <p class="tier-audience">Founders & Senior Teams</p>
-                    <div class="price">$275<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">20-60 hrs/month typical engagement</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Deliverables:</h4>
-                    <ul>
-                        <li>Individual & Group Executive Coaching</li>
-                        <li>Custom Leadership Development Roadmaps</li>
-                        <li>Decision-Making Frameworks & Strategic Resilience</li>
-                        <li>Shadowing, Feedback Loops, and Strength-Based Growth</li>
-                        <li>Stakeholder Alignment & Influence Strategies</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🔴 Strategic Marketing & Brand Positioning</h3>
-                    <p class="tier-audience">Brand & Market Strategy</p>
-                    <div class="price">$225<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">40-100 hrs/month typical engagement</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Deliverables:</h4>
-                    <ul>
-                        <li>Brand Identity Deep Dive & Positioning Audit</li>
-                        <li>Messaging Frameworks & Value Proposition Design</li>
-                        <li>Competitor & Market Research</li>
-                        <li>Go-to-Market Strategy Planning</li>
-                        <li>Visual & Narrative Alignment with Innovation Goals</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="tier-name">🟠 Custom Consulting & Strategic Retainers</h3>
-                    <p class="tier-audience">Tailored Solutions</p>
-                    <div class="price">$175-$325<span style="font-size: 1rem;">/hr</span></div>
-                    <p class="price-details">Based on complexity, risk, and strategic value</p>
-                </div>
-                <div class="deliverables">
-                    <h4>Retainer Benefits:</h4>
-                    <ul>
-                        <li>6-12 month engagements: Minimum 40 hrs/month</li>
-                        <li>Value-based pricing structure</li>
-                        <li>Quarterly Strategic Reviews (12-month commitments)</li>
-                        <li>Priority access to our team</li>
-                        <li>Customized delivery approach</li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
-        <div class="retainer-info">
-            <h3>Retainer Commitment Discounts</h3>
-            <p>Lock in preferred rates and ensure priority access to our expertise with commitment-based pricing.</p>
-            <div class="discount-badges">
-                <div class="discount-badge">6-Month Commitment: 10% Discount</div>
-                <div class="discount-badge">12-Month Commitment: 15% Discount + Quarterly Reviews</div>
-            </div>
-        </div>
     </section>
 
     <!-- About Us Section -->
@@ -907,7 +775,7 @@
         <div class="about-container">
             <div class="founder-card">
                 <div class="founder-profile">
-                    <div class="profile-image">NS</div>
+                    <div class="profile-image"><img src="assets/images/nspahn_hs.jpg" alt="Noah Spahn"></div>
                     <div class="founder-info">
                         <h3>Noah Spahn</h3>
                         <h4>Technical Lead & Full-Stack Engineer</h4>
@@ -943,7 +811,7 @@
 
             <div class="founder-card">
                 <div class="founder-profile">
-                    <div class="profile-image">DK</div>
+                    <div class="profile-image"><img src="assets/images/dkerr_hs.png" alt="David Kerr"></div>
                     <div class="founder-info">
                         <h3>David Kerr</h3>
                         <h4>Strategy & Innovation Lead</h4>
@@ -985,7 +853,7 @@
 
     <!-- Why Choose Us Section -->
     <section class="why-us" id="why-us">
-        <h2 class="section-title">Why Organizations Choose Nexus Point</h2>
+        <h2 class="section-title">Why Organizations Choose Nexus Corp</h2>
         <div class="features-list">
             <div class="feature-item">
                 <div class="feature-icon">✓</div>
@@ -1028,8 +896,8 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="section-title">Ready to Accelerate Your Vision?</h2>
-        <p>Let's discuss how Nexus Point can help you achieve your strategic objectives and technical goals</p>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
+        <p>Let's discuss how Nexus Corp can help you achieve your strategic objectives and technical goals</p>
+        <form class="contact-form" action="https://formspree.io/f/xpznrklz" method="POST">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -1047,13 +915,6 @@
                 <select id="service" name="service" required>
                     <option value="">Select a service...</option>
                     <option value="diagnostic">🔍 Nexus Diagnostic™ - Discovery ($3,500)</option>
-                    <option value="startup">🟢 Startup Launch & Accelerate™ ($150/hr)</option>
-                    <option value="growth">🔵 Growth Catalyst™ ($225/hr)</option>
-                    <option value="enterprise">🟣 Enterprise Innovation & GovCon™ ($295/hr)</option>
-                    <option value="behavioral">🚀 Behavioral Change & Innovation™ ($275/hr)</option>
-                    <option value="leadership">🟡 Executive Leadership Coaching ($275/hr)</option>
-                    <option value="marketing">🔴 Strategic Marketing & Brand Positioning ($225/hr)</option>
-                    <option value="custom">🟠 Custom Consulting & Strategic Retainers</option>
                 </select>
             </div>
             <div class="form-group">
@@ -1066,7 +927,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Nexus Point Incorporated. All rights reserved. | Strategic Innovation & Technical Excellence</p>
+        <p>&copy; 2024 Nexus Corp. All rights reserved. | Strategic Innovation & Technical Excellence</p>
     </footer>
 
     <script>
